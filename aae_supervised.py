@@ -1,3 +1,4 @@
+import os
 import sys
 import mxnet as mx
 import numpy as np
@@ -55,6 +56,9 @@ if __name__ == '__main__':
             'beta1': beta1,
         }
     }
+
+    if not os.path.exists('cache'):
+        os.mkdir('cache')
 
     if dataset == 'mnist':
         X_train, X_test, Y_train, Y_test = get_mnist(root_dir='./cache', train_ratio=0.9)

@@ -58,6 +58,9 @@ if __name__ == '__main__':
         }
     }
 
+    if not os.path.exists('cache'):
+        os.mkdir('cache')
+
     if dataset == 'mnist':
         X_train, X_test, Y_train, Y_test = get_mnist(root_dir='./cache', train_ratio=0.9)
         train_iter = mx.io.NDArrayIter(X_train, batch_size=batch_size)
